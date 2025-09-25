@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Record Form with Events</title>
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  .container {
+    display: flex;
+    min-height: 80vh;
+  }
+  .left, .right {
+    flex: 1;
+    padding: 20px;
+  }
+  .left {
+    background: #f7f7f7;
+    border-right: 2px solid #ddd;
+  }
+  .right {
+    background: #fff;
+  }
+  h2 {
+    margin-top: 0;
+  }
+  form label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+  }
+  form input, form select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    box-sizing: border-box;
+  }
+  button {
+    background-color: black;
+    margin-top: 20px;
+    padding: 10px 20px;
+    color:#f5f0f0;
+    cursor: pointer;
+  }
+  button:hover {
+    background-color: #222;
+  }
+  #reset-btn {
+    background-color: red;
+    color: white;
+    border: red;
+  }
+  #reset-btn:hover {
+    background-color: rgb(145, 3, 3);
+  }
+  #display-panel {
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 6px;
+    background: #fafafa;
+    min-height: 150px;
+  }
+  /* Event log styles */
+  #event-log {
+    background: #222;
+    color: rgb(225, 255, 225);
+    font-family: monospace;
+    padding: 10px;
+    min-height: 100px;
+    overflow-y: auto;
+  }
+  #event-log h3 {
+    margin: 0 0 10px;
+    font-size: 1rem;
+    color: #fff;
+  }
+  #event-log p {
+    margin: 2px 0;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <!-- Left Section: Form -->
+  <div class="left">
+    <h2>Enter Student Record</h2>
+    <form id="student-form">
+      <label for="name">Name:</label>
+      <input id="name" type="text" name="name" required
+             onfocus="handleFocus('Name field focused')"
+             onkeyup="handleKey(event, 'name')"
+             onselect="handleSelect()">
+
+      <label for="age">Age:</label>
+      <input id="age" type="number" name="age" required
+             onfocus="handleFocus('Age field focused')"
+             onkeyup="handleKey(event, 'age')">
+
+      <label for="course">Course:</label>
+      <select id="course" name="course" required
+              onfocus="handleFocus('Course dropdown focused')">
+        <option value="">Select a course</option>
+        <option value="Math">Math</option>
+        <option value="Science">Science</option>
+        <option value="History">History</option>
+      </select>
+
+      <button type="submit">Submit Record</button>
+    </form>
+
+    <!-- onclick demo -->
+    <button id="reset-btn">Reset Panel (onclick)</button>
+  </div>
+
+  <!-- Right Section: Display -->
+  <div class="right">
+    <h2>Submitted Details</h2>
+    <div id="display-panel">
+      <p>No data submitted yet.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Event Log Section -->
+<div id="event-log">
+  <h3>Event Log</h3>
+</div>
+
+<script>
+/* -------- Helper: Append messages to event log -------- */
+function logEvent(msg) {
+  const logDiv = document.getElementById("event-log");
+  const p = document.createElement("p");
+  p.textContent = msg;
+  logDiv.appendChild(p);
+//   logDiv.scrollTop = logDiv.scrollHeight; // auto-scroll
+}
+
+/* -------- onload -------- */
+window.onload = function () {
+  logEvent("Page has finished loading (onload event)");
+};
+
+/* -------- Handlers -------- */
+function handleFocus(msg) {
+  logEvent(msg);
+}
+
+function handleKey(event, field) {
+  logEvent(`${field} typing: ${event.target.value}`);
+}
+
+function handleSelect() {
+  logEvent("Text selected in Name field (onselect)");
+}
+
+/* -------- onsubmit -------- */
+const form = document.getElementById('student-form');
+form.onsubmit = function (event) {
+  event.preventDefault(); // stop page reload
+
+  const name = document.getElementById('name').value.trim();
+  const age = document.getElementById('age').value.trim();
+  const course = document.getElementById('course').value;
+
+  const panel = document.getElementById('display-panel');
+  panel.innerHTML = `
+    <p><strong>Name:</strong> ${name}</p>
+    <p><strong>Age:</strong> ${age}</p>
+    <p><strong>Course:</strong> ${course}</p>
+  `;
+
+  logEvent("Form submitted (onsubmit event)");
+};
+
+/* -------- onclick -------- */
+document.getElementById('reset-btn').onclick = function () {
+  document.getElementById('display-panel').innerHTML =
+    '<p>No data submitted yet.</p>';
+  logEvent("Reset button clicked (onclick)");
+};
+
+/* -------- onmouseover -------- */
+document.getElementById('display-panel').onmouseover = function () {
+  logEvent("Mouse is over the display panel (onmouseover)");
+};
+</script>
+
+</body>
+</html>

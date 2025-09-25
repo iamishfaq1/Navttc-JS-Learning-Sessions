@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions, Arrays and DOM Manipulation</title>
+    <style>
+        body{
+            background-image: url(bg-pattern.jpg);
+            background-size: cover;
+            background-position: center;
+            font-family: 'Lucida Sans', Verdana, sans-serif;
+
+        }
+        main {
+            display: grid;
+            align-items: center;
+            justify-content: space-around;
+            gap: 10px;
+        }
+        section {
+            width: 100%;
+        }
+        h1 {
+            font-size: 20px;
+            color: rgb(2, 2, 42);
+        }
+
+        .answer {
+            min-height: 70px;
+            background-color: aliceblue;
+            border: 1px solid ghostwhite;
+            border-radius: 20px;
+            padding: 50px;
+            /* display: flex; */
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        span {
+            font-weight: bold;
+            font-size: 20px;
+            color: rgb(4, 46, 118);
+        }
+    </style>
+
+</head>
+<body>
+    <main>
+       <section>
+        <h1>Question 01: </h1>
+        <p>Write a function that takes an array and a number. Add the number to the end of the array and return it.</p>
+
+        <div class="answer">
+            <p>The updated array is here: <span id="q1"></span> </p>
+        </div>
+    </section>
+
+    <section>
+        <h1>Question 02: </h1>
+        <p>Write a function that removes the last element from an array and returns the  updated array.</p>
+        <div class="answer">
+            <p>Orignal Array: <span id="original-array"></span>.</p>
+            <p>Removed Last item: <span id="removed-last-item"></span>.</p>
+            <p>Updated Array: <span id="updated-array"></span>. </p>
+        </div>
+    </section>
+
+    <section>
+        <h1>Question 03: </h1>
+        <p>Write a function that returns the first element of an array. </p>
+        <div class="answer">
+            <p>Orignal Array: <span id="original-array-1"></span>.</p>
+            <p>Removed Last item:  <span id="removed-first-item" onmouseenter="changeColorOnHover()"></span>. </p>
+            <p>Updated Array: <span id="updated-array-1"></span>. </p>
+        </div>
+    </section> 
+
+    <section>
+        <h1>Question 04: </h1>
+        <p>Write a function that returns the first element of an array. </p>
+        <div class="answer">
+            <p>Orignal Array: <span id="original-array-1"></span>.</p>
+            <p>Removed Last item:  <span id="removed-first-item"></span>. </p>
+            <p>Updated Array: <span id="updated-array-1"></span>. </p>
+        </div>
+    </section> 
+    </main>
+    
+
+    
+    <script src="functionsAndArrays.js"></script>
+
+</body>
+</html>

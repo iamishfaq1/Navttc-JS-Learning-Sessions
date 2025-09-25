@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Axios Demo</title>
+  <style>
+    .mydiv {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        align-items: center;
+        justify-content: center;
+        flex-grow: grow;
+    }
+    button {
+        background-color: rebeccapurple;
+        color: aliceblue;
+        padding: 10px 20px;
+        border-radius: 15px;
+    }
+    input {
+        width: 470px;
+        padding: 10px 20px;
+        border-radius: 15px;
+        outline: none;
+
+    }
+    #result {
+        width: 93%;
+        min-height: 100px;
+        padding: 20px;
+        border: 1px solid rebeccapurple;
+        border-radius: 15px;
+        background-color: rgb(237, 227, 247);
+    }
+  </style>
+  <!-- Axios CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <h1 style="text-align: center;">Axios Example Functions</h1>
+    <div class="mydiv">
+        <div style="display: flex; gap: 20px; flex-grow: grow; ">
+<!--    <button onclick="fetchLocalFile()">Read Local File</button> -->
+        <button onclick="fetchNamazTimes()">Get Namaz Times (Islamabad)</button>
+        <button onclick="fetchPosts()">Get Posts List</button>
+        <button onclick="fetchPost()">Get Random Post</button>
+        <button onclick="fetchUser()">Get Random User</button>
+        <input type="text" id="getName" placeholder="Enter a name">
+        <button onclick="checkNationality()">Check Nationality</button>
+        </div>
+        
+        <div id="result">Result will appear here...</div>
+
+    </div>
+
+        <div class="mydiv">
+            <button onclick="fetchDog()">Get Random Dog</button>
+            <div id="dogResult">Dog image will appear here...</div>
+        </div>
+
+  <script src="axios.js"></script>
+</body>
+</html>
