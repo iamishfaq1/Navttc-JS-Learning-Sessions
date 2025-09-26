@@ -8,15 +8,21 @@
   </head>
   <body>
     <h1>I am a super heading</h1>
+
+    <!-- Root container for React -->
     <div id="root">
       <h2>Hello, I am child of Root</h2>
     </div>
+
     <h1>I am a super footer</h1>
+
+    <!-- React libraries -->
     <script src="./react-lib/react.development.js"></script>
     <script src="./react-lib/react-dom.development.js"></script>
+
     <script>
       const nestedElement = (
-        <div id="root">
+        <div>
           <div id="parent">
             <div id="child1">
               <h1 style={{ color: "blue" }}>Hi, I'm Bob the Builder!</h1>

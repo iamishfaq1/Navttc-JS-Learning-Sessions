@@ -16,6 +16,7 @@
     <script src="./react-lib/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script type="text/babel">
+
       const nestedElement = (
         <div id="root">
           <div id="parent">
@@ -31,31 +32,31 @@
         </div>
       );
 
-      const NestedFunction = () => (
+      const NestedFunction = () => ( // this will not be used until called in root.render. 
         <div id="root">
           <div id="parent">
             <div id="child1">
-              <h1 style={{ color: "blue" }}>Hi, I'm Bob the Builder!</h1>
+              <h1 style={{ color: "blue" }}>Hi, I'm Bob Nested Function!</h1>
               <h2>I can fix it!</h2>
             </div>
             <div id="child2">
-              <h1 style={{ color: "orange" }}>Hi, I'm Dora the Explorer!</h1>
+              <h1 style={{ color: "orange" }}>Hi, I'm nested function wali Dora the Explorer!</h1>
               <h2>Let's go exploring!</h2>
             </div>
           </div>
         </div>
       );
 
-      function PlainFunction() {
+      function PlainFunction() { // This will work only with Babel
         return (
           <div id="root">
             <div id="parent">
               <div id="child1">
-                <h1 style={{ color: "blue" }}>Hi, I'm Bob the Builder!</h1>
+                <h1 style={{ color: "blue" }}>Hi, I'm Bob  Plain Function ilder!</h1>
                 <h2>I can fix it!</h2>
               </div>
               <div id="child2">
-                <h1 style={{ color: "orange" }}>Hi, I'm Dora the Explorer!</h1>
+                <h1 style={{ color: "orange" }}>Hi, I'm Plain function wali dora the Explorer!</h1>
                 <h2>Let's go exploring!</h2>
               </div>
             </div>
@@ -63,8 +64,19 @@
         );
       }
 
+      const MyOwnElement = () => (
+      <div id="root">
+        <p>Hello down below is the list items</p>
+        <ul>
+          <li>Neo </li>
+          <li>This is the elementation</li>
+          <li>This is the third element</li>
+        </ul>
+      </div> 
+   );
+     
       const root = ReactDOM.createRoot(document.getElementById("root"));
-      root.render(<PlainFunction />);
+      root.render(<MyOwnElement />); // This accepts just 1 element at a time. 
     </script>
-  </body>
+  </body> 
 </html>
