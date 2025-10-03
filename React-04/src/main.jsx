@@ -1,10 +1,11 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-// import App from './App.jsx'
-import LifecycleClassComponent from './main.js'
+import App from './App.jsx'
+// import LifecycleClassComponent from './LifecycleClassComponent.jsx'
 
 createRoot(document.getElementById('root')).render(
-    <LifecycleClassComponent />
-  
+  <StrictMode>
+    <App />
+  </StrictMode>,
 )
